@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import pokemonData from '../pokemonData';
+import pokemonData from './pokemonData';
 import Card from './components/Card';
 
 function App() {

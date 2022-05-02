@@ -20,8 +20,16 @@ export type IndividualPokemon = {
  sprites: {
   front_default: string;
  }
-types: {
-   type: {
-    name: string;
+ types: {
+    type: {
+     name: string;
+   }
+  }[]
+ weight: number;
+ height: number;
+ abilities: {
+  ability: {
+   name: string;
   }
- }[]}
+ }[]
+}
