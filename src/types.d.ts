@@ -1,17 +1,7 @@
 interface Pokemon {
+ id: number
  name: string;
- url: string;
-
-}
-
-export interface AllPokemon {
- count: 1126,
- next: 'https://pokeapi.co/api/v2/pokemon?offset=40&limit=20',
- previous: 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20',
- count: number;
- next: string;
- previous: string;
- results: Pokemon[]
+ image: string;
 }
 
 export type IndividualPokemon = {
