@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import Card from './components/Card';
 import logo from './assets/logo.png';
 import { Pokemon } from './types';
@@ -15,21 +15,21 @@ function App() {
   useEffect(() => {
     const url = 'https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json';
     const fetchAllPokemon = async () => {
-      const data = await getData<Pokemon[]>(url);
-      setPokemon(data);
+      await getData<Pokemon[]>(url).then(response => setPokemon(response));
     };
     fetchAllPokemon();
-  });
+  },[]);
 
   // Refresh the data on search
   useEffect(() => {
-    if (!pokemon) {return}
+    if (!pokemon) {
+      return;
+    }
     const newFilteredPokemon = pokemon!.filter(eachPokemon => {
       return eachPokemon.name.toLocaleLowerCase().includes(search);
     });
     setFilteredPokemon(newFilteredPokemon);
-    console.log(newFilteredPokemon);
-  }, [search]);
+  }, [search, pokemon]);
 
   // Return loading state initially
   if (!pokemon) {
