@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import Card from './components/Card';
 import logo from './assets/logo.png';
-import { Pokemon } from './types';
+import { Pokemon } from './types/pokemonTypes';
 import { getData } from './utils/helper';
 
 function App() {
