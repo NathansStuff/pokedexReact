@@ -33,7 +33,7 @@ function App() {
 
   // Return loading state initially
   if (!pokemon) {
-    return <div>Loading</div>;
+    return <div className="w-screen h-screen bg-green-700">Loading</div>;
   }
 
   // Search filter
