@@ -2,8 +2,8 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import Card from '../components/Card';
 import logo from '../assets/logo.png';
 import { Pokemon } from '../types/pokemonTypes';
+import { getData } from '../utils/helper';
 import Loading from '../components/Loading';
-import { fetchAllPokemon } from '../lib/api';
 
 function App() {
   const [search, setSearch] = useState('');
@@ -14,10 +14,11 @@ function App() {
 
   // on load, fetch all pokemon
   useEffect(() => {
-    async function getPokemon() {
-      setPokemon(await fetchAllPokemon());
-    }
-    getPokemon();
+    const url = 'https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json';
+    const fetchAllPokemon = async () => {
+      await getData<Pokemon[]>(url).then(response => setPokemon(response));
+    };
+    fetchAllPokemon();
   }, []);
 
   // Refresh the data on search

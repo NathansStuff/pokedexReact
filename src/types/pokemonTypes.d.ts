@@ -4,22 +4,16 @@ interface Pokemon {
  image: string;
 }
 
+interface Type {
+  type: string
+}
+
 export type IndividualPokemon = {
- id: number;
  name: string;
- sprites: {
-  front_default: string;
- }
- types: {
-    type: {
-     name: string;
-   }
-  }[]
- weight: number;
- height: number;
- abilities: {
-  ability: {
-   name: string;
-  }
+ type: Type[]
+ stats: {
+  name: string;
+  value: number;
  }[]
+ image: string;
 }
