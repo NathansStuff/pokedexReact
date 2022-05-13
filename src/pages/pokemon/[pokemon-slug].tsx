@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 // Components
 import Loading from '../../components/Loading';
+import Navbar from '../../components/Navbar';
 // Helpers
 import { getData } from '../../utils/helper';
 // Types
@@ -26,40 +27,43 @@ export default function PokemonPage() {
 
   if (!pokemon) return <Loading />;
   const { name, image, stats, type } = pokemon;
-  console.log(pokemon);
+
   return (
-    <div className='flex flex-col space-y-2 justify-center items-center mt-10'>
-      <div className='flex space-x-2'>
-        <h1 className='text-xl md:text-2xl'>{name}</h1>
-        <h1>#{id}</h1>
-      </div>
-      <div className='rounded p-5 flex items-center space-x-10 m-5 justify-center'>
-        <img
-          src={`${url}/${image}`}
-          alt={`${name}`}
-          className='w-60 h-60 object-cover'
-        />
-        <div>
-          <h2 className='text-xl justify-center flex py-5'>Stats</h2>
-          {stats.map(stat => (
-            <div className='flex justify-between space-x-5'>
-              <div>
-                <p>{stat.name}</p>
-              </div>
-              <div>
-                <p>{stat.value}</p>
-              </div>
-            </div>
-          ))}
+    <div className='flex flex-col  w-full  items-center bg-blue-900 min-h-screen space-y-5'>
+      <Navbar />
+      <div className='bg-red-500'>
+        <div className='flex space-x-2 w-full justify-center pt-5'>
+          <h1 className='text-xl md:text-2xl'>{name}</h1>
+          <h1>#{id}</h1>
         </div>
-        <div>
-          <h2 className='text-xl justify-center flex py-5'>Types</h2>
+        <div className='rounded p-5 flex space-x-10 m-5 justify-center'>
+          <img
+            src={`${url}/${image}`}
+            alt={`${name}`}
+            className='w-60 h-60 object-cover'
+          />
           <div>
-            {type.map(each => (
-              <div>
-                <p>{each}</p>
+            <h2 className='text-xl justify-center flex pb-5'>Stats</h2>
+            {stats.map(stat => (
+              <div className='flex justify-between space-x-5'>
+                <div>
+                  <p>{stat.name}</p>
+                </div>
+                <div>
+                  <p>{stat.value}</p>
+                </div>
               </div>
             ))}
+          </div>
+          <div>
+            <h2 className='text-xl justify-center flex pb-5'>Types</h2>
+            <div>
+              {type.map(each => (
+                <div>
+                  <p>{each}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

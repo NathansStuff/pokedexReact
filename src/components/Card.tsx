@@ -1,3 +1,5 @@
+// React
+import { NavLink } from 'react-router-dom';
 // Helpers
 import { capitalizeFirstLetter } from '../utils/helper';
 // Types
@@ -13,16 +15,18 @@ export default function Card({ pokemon }: Props) {
   const name = capitalizeFirstLetter(pokemon.name);
 
   return (
-    <div className='rounded p-5 bg-red-500 flex flex-col items-center space-y-2 m-5'>
-      <div className='flex space-x-2'>
-        <h1 className='text-xl md:text-2xl'>{name}</h1>
-        <h1>#{id}</h1>
+    <NavLink to={`/pokemon/${id}`}>
+      <div className='rounded p-5 bg-red-500 flex flex-col items-center space-y-2 m-5'>
+        <div className='flex space-x-2'>
+          <h1 className='text-xl md:text-2xl'>{name}</h1>
+          <h1>#{id}</h1>
+        </div>
+        <img
+          src={`${url}/${image}`}
+          alt={`${name}`}
+          className='w-60 h-60 object-cover'
+        />
       </div>
-      <img
-        src={`${url}/${image}`}
-        alt={`${name}`}
-        className='w-60 h-60 object-cover'
-      />
-    </div>
+    </NavLink>
   );
 }

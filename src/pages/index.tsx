@@ -1,9 +1,13 @@
+// React
 import { ChangeEvent, useEffect, useState } from 'react';
+// Components
 import Card from '../components/Card';
-import logo from '../assets/logo.png';
-import { Pokemon } from '../types/pokemonTypes';
-import { getData } from '../utils/helper';
 import Loading from '../components/Loading';
+import Navbar from '../components/Navbar';
+// Helpers
+import { getData } from '../utils/helper';
+// Types
+import { Pokemon } from '../types/pokemonTypes';
 
 function App() {
   const [search, setSearch] = useState('');
@@ -44,8 +48,8 @@ function App() {
   };
 
   return (
-    <div className='flex w-full items-center flex-col bg-blue-900 min-h-screen space-y-5 pt-5'>
-      <img src={logo} width='300' alt='Pokemon Logo' />
+    <div className='flex w-full items-center flex-col bg-blue-900 min-h-screen space-y-5'>
+      <Navbar />
       <input
         className='border-none outline-none p-5 w-[350px] mb-10 h-10'
         placeholder='Search'
