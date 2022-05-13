@@ -4,13 +4,9 @@ interface Pokemon {
  image: string;
 }
 
-interface Type {
-  type: string
-}
-
 export type IndividualPokemon = {
  name: string;
- type: Type[]
+ type: string[]
  stats: {
   name: string;
   value: number;
