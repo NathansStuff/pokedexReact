@@ -1,3 +1,4 @@
+import { imageUrl } from '../lib/api';
 import { Pokemon } from '../types/pokemonTypes';
 
 type Props = {
@@ -5,7 +6,6 @@ type Props = {
 };
 
 export default function Card({ pokemon }: Props) {
-  // Makes the first letter of a string capitalized
   function capitalizeFirstLetter(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -20,7 +20,7 @@ export default function Card({ pokemon }: Props) {
         <h1>#{id}</h1>
       </div>
       <img
-        src={`https://jherr-pokemon.s3.us-west-1.amazonaws.com/${image}`}
+        src={`${imageUrl}/${image}`}
         alt={`${name}`}
         className='w-60 h-60 object-cover'
       />
