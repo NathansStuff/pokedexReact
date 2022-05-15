@@ -27,9 +27,8 @@ function App() {
 
   // Refresh the data on search
   useEffect(() => {
-    if (!pokemon) {
-      return;
-    }
+    if (!pokemon) return;
+    
     const newFilteredPokemon = pokemon!.filter(eachPokemon => {
       return eachPokemon.name.toLocaleLowerCase().includes(search);
     });

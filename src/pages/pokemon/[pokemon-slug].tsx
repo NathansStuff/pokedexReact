@@ -44,8 +44,8 @@ export default function PokemonPage() {
           />
           <div>
             <h2 className='text-xl justify-center flex pb-5'>Stats</h2>
-            {stats.map(stat => (
-              <div className='flex justify-between space-x-5'>
+            {stats.map((stat, index) => (
+              <div className='flex justify-between space-x-5' key={index}>
                 <div>
                   <p>{stat.name}</p>
                 </div>
@@ -58,8 +58,8 @@ export default function PokemonPage() {
           <div>
             <h2 className='text-xl justify-center flex pb-5'>Types</h2>
             <div>
-              {type.map(each => (
-                <div>
+              {type.map((each, index) => (
+                <div key={index}>
                   <p>{each}</p>
                 </div>
               ))}
